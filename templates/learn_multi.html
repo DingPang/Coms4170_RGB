@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_multi.js') }}"></script>
+<script>
+    let item = {{item|tojson}};
+</script>
+<h1>{{item.words}}</h1>
+
+<div class="container">
+    <div class="warning"></div>
+    <div class="row">
+        {% for c in item.options %}
+            <button class="circleBase" style = "background: rgb{{c}};"></button>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
