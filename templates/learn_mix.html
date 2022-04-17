@@ -1,15 +1,18 @@
 {% extends "index.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'learn_multi.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_mix.js') }}"></script>
 <script>
     let item = {{item|tojson}};
 </script>
-<h1>{{item.words}}</h1>
+
 
 <div class="container">
-    <div class="warning">Try again!</div>
-    <div class="correct">Correct!</div>
+    <div class="row">
+        <h1 class="col-sm-4">{{item.words}}</h1>
+        <div class="col-sm-6"></div>
+        <button class="col-sm-2 hint" id = "hint">Hint</button>
+    </div>
     <div class="row">
         {% for c in item.options %}
             <button class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></button>
@@ -18,5 +21,9 @@
 </div>
 
 <div id = "dialog" title = "Wrong One">
+</div>
+
+
+<div id = "hint_dialog" title = "Hint">
 </div>
 {% endblock %}

@@ -2,17 +2,17 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  /* background: #4bc475; */
-  border: 1px solid #000;
+
 }
 
-/* .circle1 {
+.circleRight {
+  border: 10px solid rgba(0, 248, 124);
+}
 
-  }
+.circleWrong {
+  border: 10px solid rgb(248, 0, 0);
+}
 
-.circle2 {
-    width: 150px;
-    height: 150px;
-    background: #a1a1a1;
-    border: 1px solid #000;
-  } */
+.hint {
+  background: rgb(21, 0, 248);
+}

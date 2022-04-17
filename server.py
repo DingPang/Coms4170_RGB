@@ -16,7 +16,7 @@ learn_data = [
         "words": "RGBs are number triplets, and each of them range from 0 to 255. Higher the number corresponds to a lighter/brighter color. So, (255, 255, 255) is?",
         "image": learn_image,
         "options": ["(255, 255, 255)", "(0, 0, 0)"],
-        "answer": "(255, 255, 255)",
+        "solution": "(255, 255, 255)",
         "type": "multi",
     },
     {
@@ -24,7 +24,7 @@ learn_data = [
         "words": "It's called RGB, but not GRB, BRG. So, (255, 0, 0) is?",
         "image": learn_image,
         "options": ["(255, 0, 0)", "(0, 255, 0)", "(0, 0, 255)"],
-        "answer": "(255, 0, 0)",
+        "solution": "(255, 0, 0)",
         "type": "multi",
     },
     {
@@ -33,7 +33,7 @@ learn_data = [
         "image": learn_image,
         "base": ["(126, 0, 0)", "(0, 0, 201)"],
         "options": ["(0, 255, 255)", "(241, 194, 50)", "(126, 0, 201)"],
-        "answer": "(126, 0, 201)",
+        "solution": "(126, 0, 201)",
         "type": "mix",
     },
 ]
