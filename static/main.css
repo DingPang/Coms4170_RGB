@@ -2,3 +2,15 @@
     margin-top: 10px;
     font-size: 30px; 
 }
+
+
+.meme {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.again-btn {
+    float: right;
+}
