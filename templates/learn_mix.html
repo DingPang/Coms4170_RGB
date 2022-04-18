@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_mix.js') }}"></script>
+<script>
+    let item = {{item|tojson}};
+</script>
+
+
+<div class="container">
+    <div class="warning">Try again!</div>
+    <div class="correct">Correct!</div>
+    <div class="row">
+        <div class="col-sm-4">If we add {{item.base[0]}} and {{item.base[1]}}, we will get {{item.solution}}, what color is it:</div>
+        <div class="col-sm-6"></div>
+        <button class="col-sm-2 hint" id = "hint">Hint</button>
+    </div>
+    <div class="row">
+        {% for c in item.options %}
+            <button class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></button>
+        {% endfor %}
+    </div>
+</div>
+
+<div id = "dialog" title = "Wrong One">
+</div>
+
+
+<div id = "hint_dialog" title = "Hint">
+</div>
+{% endblock %}
