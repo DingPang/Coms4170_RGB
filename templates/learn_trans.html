@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script>
+    let item = {{item|tojson}};
+</script>
+
+
+<div class="container">
+    <div class="row">
+        {{item.words}}
+        <img src='{{item.image}}' alt='RGB Mixing Color Wheels' style = "object-fit: scale-down; width: 50%;
+        height: 50%;">
+    </div>
+    <div class="row">
+        <button onclick="window.location.href = '/learn/4'">Continue</button>
+    </div>
+</div>
+{% endblock %}

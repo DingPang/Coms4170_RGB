@@ -33,3 +33,7 @@ function deltaE(rgbA, rgbB) {
     z = (z > 0.008856) ? Math.pow(z, 1/3) : (7.787 * z) + 16/116;
     return [(116 * y) - 16, 500 * (x - y), 200 * (y - z)]
   }
+
+
+
+

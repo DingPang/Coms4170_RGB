@@ -1,3 +1,4 @@
+import {learn_store} from '/utils.js';
 function insert_dialog(RGB, parent) {
     let rgb = RGB.split(',')
     var r = rgb[0].substring(1)
@@ -32,7 +33,12 @@ function insert_Hint() {
 
 
 $(document).ready(function () {
+    $('.warning').hide()
+    $('.correct').hide()
     $(".hint").click(function(event) {
+        if ($("#dialog").hasClass('ui-dialog-content') && $("#dialog").dialog("isOpen")) {
+            $("#dialog").dialog( "close" );
+        }
         insert_Hint()
         $("#hint_dialog").dialog({
             dialogClass: "no-close",
@@ -49,9 +55,13 @@ $(document).ready(function () {
     $(".circleBase").click(function(event) {
         $(".circleBase").removeClass("circleWrong")
         $(".circleBase").removeClass("circleRight")
+        if ($("#hint_dialog").hasClass('ui-dialog-content') && $("#hint_dialog").dialog("isOpen")) {
+            $("#hint_dialog").dialog( "close" );
+        }
         let answer = $( this ).attr("id");
         let solution = item["solution"]
         if (answer != solution){
+            $('.warning').show()
             insert_dialog(answer, $(this).attr("style"))
             $(this).addClass("circleWrong")
             $( "#dialog" ).dialog({
@@ -66,8 +76,11 @@ $(document).ready(function () {
                 ]
             });
         } else {
-            $( "#dialog" ).dialog( "close" );
+            if ($("#dialog").hasClass('ui-dialog-content') && $("#dialog").dialog("isOpen")) {
+                $("#dialog").dialog( "close" );
+            }
             $(this).addClass("circleRight")
+            $('.correct').show()
             var next = "/learn/" + (item["id"]+1).toString()
             window.setTimeout(function() {
                 window.location.href = next;
