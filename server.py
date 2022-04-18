@@ -90,15 +90,15 @@ learn_data = [
 ]
 
 
-@app.route("/")
-def home():
-    render_template("home.html")
+
+@app.route('/')
+def homepage():
+    return render_template("homepage.html")
 
 
 @app.route("/learn")
 def learn():
     return render_template("learn.html")
-
 
 @app.route("/learn/<str>", methods=["GET"])
 def learn_page(str=" "):
@@ -147,8 +147,7 @@ def learn_store():
 
 @app.route("/quiz")
 def quiz():
-    render_template("quiz.html")
+    return render_template("quiz.html")
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+   app.run(debug = True)
