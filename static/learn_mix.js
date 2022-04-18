@@ -1,4 +1,28 @@
-import {learn_store} from '/utils.js';
+// store learning important info:
+function learn_store(id, page){
+    console.log("ajaxing user selected "+id + " at learn/"+ page)
+    let item = {
+        "selection": id,
+        "page": page,
+    }
+    $.ajax({
+        type: "POST",
+        url: "/learn/store" ,
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(item),
+        success: function (response) {
+            console.log("stored sucess")
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
 function insert_dialog(RGB, parent) {
     let rgb = RGB.split(',')
     var r = rgb[0].substring(1)
@@ -53,6 +77,9 @@ $(document).ready(function () {
         });
     });
     $(".circleBase").click(function(event) {
+        $('.warning').hide()
+        $('.correct').hide()
+        learn_store($( this ).attr("id"), item["id"])
         $(".circleBase").removeClass("circleWrong")
         $(".circleBase").removeClass("circleRight")
         if ($("#hint_dialog").hasClass('ui-dialog-content') && $("#hint_dialog").dialog("isOpen")) {

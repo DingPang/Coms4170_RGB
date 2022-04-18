@@ -8,13 +8,13 @@
 
 
 <div class="container">
-    <div class="warning">Try again!</div>
-    <div class="correct">Correct!</div>
     <div class="row">
         <div class="col-sm-4">If we add {{item.base[0]}} and {{item.base[1]}}, we will get {{item.solution}}, what color is it:</div>
         <div class="col-sm-6"></div>
         <button class="col-sm-2 hint" id = "hint">Hint</button>
     </div>
+    <div class="warning">Try again!</div>
+    <div class="correct">Correct!</div>
     <div class="row">
         {% for c in item.options %}
             <button class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></button>
