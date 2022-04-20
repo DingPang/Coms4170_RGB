@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_mix.js') }}"></script>
+<script>
+    let item = {{item|tojson}};
+</script>
+<div>{{item.words}}</div>
+
+<div class="container">
+    <div class="warning">Try again!</div>
+    <div class="correct">Correct!</div>
+    <div class="row">
+        {% for c in item.options %}
+            <div class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></div>
+        {% endfor %}
+    </div>
+    <br>
+    <div class ='row'>
+        R:<input type ="text" id = "rbox">
+        G:<input type ="text" id = "gbox">
+        B:<input type ="text" id = "bbox">
+        <button id = "Submit">Submit</button>
+    </div>
+    
+</div>
+
+<div id = "dialog" title = "Wrong One">
+</div>
+{% endblock %}

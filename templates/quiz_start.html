@@ -1,10 +1,6 @@
 {% extends "index.html" %}
 
 {% block content %}
-<script>
-    let item = {{item|tojson}};
-</script>
-
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
 <div class="quiz-page">

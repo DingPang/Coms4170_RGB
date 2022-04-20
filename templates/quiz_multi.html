@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_multi.js') }}"></script>
+<script>
+    let item = {{item|tojson}};
+</script>
+<div>{{item.words}}</div>
+
+<div class="container">
+    <div class="warning">Try again!</div>
+    <div class="correct">Correct!</div>
+    <div class="row">
+        {% for c in item.options %}
+            <button class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></button>
+        {% endfor %}
+    </div>
+</div>
+
+<div id = "dialog" title = "Wrong One">
+</div>
+{% endblock %}

@@ -1,10 +1,13 @@
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify, make_response, redirect
+import random
 import time
 
 app = Flask(__name__)
 user_learn = []
+quiz_learn = []
+
 learn_image = "https://i.pinimg.com/564x/b7/45/3a/b7453aedcbd060c8b842d85f27c083fb.jpg"
 learn_data = [
     {
@@ -89,6 +92,18 @@ learn_data = [
     },
 ]
 
+quiz_data = [
+    {
+        "id": 1,
+        "words": "(100, 100, 100) is:",
+        "image": learn_image,
+        "options": ["(100, 100, 100)"],
+        "solution": "(100, 100, 100)",
+    },
+  
+]
+
+
 
 
 @app.route('/')
@@ -144,10 +159,143 @@ def learn_store():
     print(user_learn)
     return jsonify(new_item)
 
+@app.route("/quiz/store", methods=["POST"])
+def quiz_store():
+    global quiz_learn
+    new_item = request.get_json()
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    new_item["time"] = current_time
+    quiz_learn.append(new_item)
+    print(quiz_learn)
+    return jsonify(new_item)
 
-@app.route("/quiz")
+
+
+@app.route("/quiz", methods=["GET"])
 def quiz():
-    return render_template("quiz.html")
+    return redirect("/quiz/0")
+
+@app.route("/quiz/<pstr>", methods=["GET"])
+def quiz_page(pstr=" "):
+
+
+    page_id = int(pstr)
+
+    #print(pstr)
+    random.seed()
+    quiz_data[0]["options"].clear()
+    if (page_id == 0):
+        quiz_learn.clear()
+
+    if (page_id <2):
+        #print(quiz_data[0])
+        #print(quiz_data[0]["options"])
+        quiz_data[0]["options"].clear()
+        solution = random.randrange(0,255,1)
+
+        quiz_data[0]["options"].append("(%s,%s,%s)"%(solution,solution,solution))
+        quiz_data[0]["solution"]="(%s,%s,%s)"%(solution,solution,solution)
+        quiz_data[0]["words"]="(%s,%s,%s) is:"%(solution,solution,solution)
+
+        i = 0
+        while i < 2:
+            x = random.randrange(0,255,1)
+            while (abs(x-solution) < 50):
+                x = random.randrange(0,255,1)
+
+
+            #print(x)
+            quiz_data[0]["options"].append("(%s,%s,%s)"%(x,x,x))
+            i = i+1
+
+
+
+        random.shuffle(quiz_data[0]["options"])
+        quiz_data[0]["id"] = page_id + 1
+        #print(quiz_data[0]["options"])
+
+
+
+        return render_template("quiz_multi.html", item=quiz_data[0])
+    if (page_id < 5):
+        solutionar = [0,0,0]
+        solution = random.randrange(0,255,1)
+        primcol = random.randrange(0,3,1)
+        solutionar[primcol] = solution
+#        print(solutionar)
+ #       print(solutionar[2])
+        x = solutionar[0]
+
+        quiz_data[0]["options"].append("(%s,%s,%s)"%(solutionar[0],solutionar[1],solutionar[2]))
+   #     print(str(5))
+        quiz_data[0]["solution"]="(%s,%s,%s)"%(solutionar[0],solutionar[1],solutionar[2])
+        quiz_data[0]["words"]="(%s,%s,%s) is:"%(solutionar[0],solutionar[1],solutionar[2])
+
+        i = 0
+        while i < 2:
+            x = random.randrange(0,255,1)
+            
+
+            while (abs(x-solution) < 50):
+                x = random.randrange(0,255,1)
+
+            primcol = random.randrange(0,3,1)
+            xar = [0,0,0]
+            xar[primcol] = x
+
+        #    print(x)
+            quiz_data[0]["options"].append("(%s,%s,%s)"%(xar[0],xar[1],xar[2]))
+            i = i+1
+        
+        quiz_data[0]["id"] = page_id + 1
+
+
+        random.shuffle(quiz_data[0]["options"])
+
+        return render_template("quiz_multi.html", item=quiz_data[0])
+
+    if (page_id < 8):
+        solutionar = [random.randrange(0,255,1),random.randrange(0,255,1),random.randrange(0,255,1)]
+
+        quiz_data[0]["options"].append("(%s,%s,%s)"%(solutionar[0],solutionar[1],solutionar[2]))
+  #      print(str(5))
+        quiz_data[0]["solution"]="(%s,%s,%s)"%(solutionar[0],solutionar[1],solutionar[2])
+        quiz_data[0]["words"]="(%s,%s,%s) is:"%(solutionar[0],solutionar[1],solutionar[2])
+
+        i = 0
+        while i < 2:
+
+            xar = [random.randrange(0,255,1),random.randrange(0,255,1),random.randrange(0,255,1)]
+
+            quiz_data[0]["options"].append("(%s,%s,%s)"%(xar[0],xar[1],xar[2]))
+            i = i+1
+        
+        quiz_data[0]["id"] = page_id + 1
+
+        random.shuffle(quiz_data[0]["options"])
+
+
+        return render_template("quiz_multi.html", item=quiz_data[0])
+    if (page_id < 10):
+        quiz_data[0]["words"]="Identify the RGB values (it doesn't have to be exact)"
+        solutionar = [random.randrange(0,255,1),random.randrange(0,255,1),random.randrange(0,255,1)]
+
+        quiz_data[0]["options"].append("(%s,%s,%s)"%(solutionar[0],solutionar[1],solutionar[2]))
+        quiz_data[0]["solution"]="(%s,%s,%s)"%(solutionar[0],solutionar[1],solutionar[2])
+        quiz_data[0]["id"] = page_id + 1
+        random.shuffle(quiz_data[0]["options"])
+
+        return render_template("quiz_mix.html", item=quiz_data[0])
+
+        
+
+    quiz_data[0]["id"] = page_id + 1
+
+    
+    answers = quiz_learn
+    return render_template("quiz.html", item=answers)
+
 
 if __name__ == '__main__':
    app.run(debug = True)
