@@ -1,19 +1,43 @@
 {% extends "index.html" %}
 
 {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_explore.js') }}"></script>
+
+<script>
+    let item = {{item|tojson}};
+</script>
 
 
-<div class="container">
-    <div class="row">
-        Now, explore all of RGB!
+
+<div class="container" >
+    <div>
+        {{item.words}}
+    </div>
+    <div>
+        We will use Blue as our Base Color, and observe how the Red/Green Gradient changes based on the changes of Blue value:
+    </div>
+    <div id  = "base_value">
+        Base Color Value: rgb(0, 0, 0)
+    </div>
+    <canvas width="512" height="50" id="base"></canvas>
+    <div>
+        Base Color:
+        <canvas width="50" height="50" id="base_color"></canvas>
+    </div>
+    <canvas width="512" height="512" id="2D"></canvas>
+    <div id  = "2D_value">
+        Result Value: rgb(0, 0, 0)
+    </div>
+    <div>
+        <canvas width="50" height="50" id="2D_color"></canvas>
+    </div>
+    <div>
+        After exploring, keep this 2D + 1D Gradient in mind for the "Quiz" and "Test Your Understanding"!
     </div>
     <div class="row">
-        <div class="row">
-            <input type="color" id="" name="Click Me!" value="#f6b73c">
-        </div>
+        <button id = "next" >Test Your Understanding</button>
     </div>
-    <div class="row">
-        <button onclick="window.location.href = '/'">End Learning</button>
-    </div>
+
 </div>
 {% endblock %}
+
