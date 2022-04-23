@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script>
+    let item = {{item|tojson}};
+</script>
+
+
+
+<div class="container" >
+    <div>
+        {{item.words}}
+    </div>
+    <div class="row">
+        <button id = "next" onclick="window.location.href = '/'">Bring Me to Home</button>
+        <button id = "next" onclick="window.location.href = '/quiz'">Bring Me to Quiz</button>
+    </div>
+
+</div>
+{% endblock %}
+

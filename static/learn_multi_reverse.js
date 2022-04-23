@@ -1,4 +1,3 @@
-
 function colors(){
     var red= document.getElementById("red").value;
     var green = document.getElementById("green").value;
@@ -7,6 +6,7 @@ function colors(){
     $("#Hint_Color").attr("style", temp)
     document.getElementById("output").innerHTML =  'rgb(' + red + ',' + green + ',' + blue + ')' ;
 }
+
 
 // store learning important info:
 function learn_store(id, page){
@@ -36,33 +36,33 @@ function learn_store(id, page){
 $(document).ready(function () {
     $('.warning').hide(0)
     $('.correct').hide(0)
-    $('#next').hide(0)
     $('#slider').hide(0)
-    $(".circleBase").click(function(event) {
+    $('#next').hide(0)
+    $('#ref').hide(0)
+    $(".btn").click(function(event) {
         learn_store($( this ).attr("id"), item["id"])
-        $(".circleBase").removeClass("circleWrong")
-        $(".circleBase").removeClass("circleRight")
         $('.warning').hide(0)
         $('.correct').hide(0)
         let answer = $( this ).attr("id");
         let solution = item["solution"]
 
         if (answer != solution){
-            $(this).addClass("circleWrong")
             $('.warning').show()
             $('#next').hide(0)
+            $('#ref_color').attr('style','background: rgb' + answer +";");
+            $('#ref').show()
         } else {
-            $(this).addClass("circleRight")
             $('.correct').show()
             $('#next').show()
+            $('#ref').hide(0)
         }
-    });
-
-    $("#Hint_Color").click(function(event) {
-        $('#slider').show(0)
     });
 
     $("#next").click(function(event) {
         window.location.href = '/learn/' + item["next"]
+    });
+
+    $("#Hint_Color").click(function(event) {
+        $('#slider').show(0)
     });
 });

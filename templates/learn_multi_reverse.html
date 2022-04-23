@@ -1,12 +1,12 @@
 {% extends "index.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'learn_multi.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_multi_reverse.js') }}"></script>
 <script>
     let item = {{item|tojson}};
 </script>
+<div>What is the most likely RGB value of below color?</div>
 <div>{{item.words}}</div>
-
 <div class="container">
     <div class="warning">Try again!</div>
     <div class="correct">Correct!</div>
@@ -28,8 +28,20 @@
     </div>
 
     <div class="row">
+        <div class = "col-md-6">
+            <div class="circleBase" style = "background: rgb{{item.solution}};" id = "{{item.solution}}"></div>
+        </div>
+        <div class = "col-md-3">
+        </div>
+        <div class = "col-md-3" id = "ref">
+            you selected:
+            <div class="circleBase" id = "ref_color"></div>
+        </div>
+    </div>
+
+    <div class="row">
         {% for c in item.options %}
-            <button class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></button>
+            <button class="btn btn-secondary" id = "{{c}}">{{c}}</button>
         {% endfor %}
     </div>
     <div class="row">
