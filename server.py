@@ -8,6 +8,7 @@ app = Flask(__name__)
 user_learn = []
 quiz_learn = []
 
+quiz_image = ""
 learn_image = "https://i.pinimg.com/564x/b7/45/3a/b7453aedcbd060c8b842d85f27c083fb.jpg"
 learn_data = {
     "basic": {
@@ -258,7 +259,14 @@ def quiz_store():
 
 @app.route("/quiz", methods=["GET"])
 def quiz():
-    return redirect("/quiz/0")
+    return render_template("/quiz_start.html")
+
+@app.route("/custom_quiz_<pstr>", methods=["GET"])
+def cquiz(pstr=" "):
+    page_id = int(pstr)
+    if page_id==0:
+        quiz_data[0]["words"] = "Choose a photo"
+    return render_template("/quiz_custom.html", item=quiz_data[0])
 
 
 @app.route("/quiz/<pstr>", methods=["GET"])

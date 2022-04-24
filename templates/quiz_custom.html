@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_custom.js') }}"></script>
+<script>
+    let item = {{item|tojson}};
+   /* var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]); 
+    };*/
+</script>
+
+<div class="container">
+    <div>
+        <input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+    </div>
+    <div  id = "labelDiv">
+        <label for="file" style="cursor: pointer; margin-top: 10%; background-color: orange;">Select an Image</label>
+    </div>
+    <div>
+        <img id="output" width="200" />
+    </div> 
+    <!--Code adapted from Thapa, Jiwan. “How To Display Uploaded Image In Html Using Javascript ?” Webtrickshome, https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript. -->
+</div>
+
+{% endblock %}

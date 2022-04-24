@@ -64,25 +64,4 @@ $(document).ready(function () {
 
 
     })
- /*   $(".circleBase").click(function(event) {
-        learn_store($( this ).attr("id"), item["id"])
-        $(".circleBase").removeClass("circleWrong")
-        $(".circleBase").removeClass("circleRight")
-        $('.warning').hide()
-        $('.correct').hide()
-        let answer = $( this ).attr("id");
-        let solution = item["solution"]
-
-        if (answer != solution){
-            $(this).addClass("circleWrong")
-            $('.warning').show()
-        } else {
-            $(this).addClass("circleRight")
-            $('.correct').show()
-            var next = "/quiz/" + (item["id"]).toString()
-            window.setTimeout(function() {
-                window.location.href = next;
-            }, 2000);
-        }
-    });*/
 });
