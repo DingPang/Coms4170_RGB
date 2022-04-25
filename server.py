@@ -278,13 +278,14 @@ def quiz():
 
 @app.route("/custom_quiz_<pstr>", methods=["GET"])
 def cquiz(pstr=" "):
+    num_questions = 1 # 5
     page_id = int(pstr)
     if page_id==0:
         quiz_learn.clear()
 
         quiz_data[0]["words"] = "Choose a photo"
         return render_template("/quiz_custom.html", item=quiz_data[0])
-    if page_id<6:
+    if page_id<= num_questions:
         quiz_data[0]["words"] = "Click anywhere in the drawing to choose a color. Then enter its RGB values: ("+pstr+"/5)"
         quiz_data[0]["id"] = page_id + 1
 
@@ -296,11 +297,6 @@ def cquiz(pstr=" "):
     return render_template("quiz.html", item=answers)
 
 
-
-
-    return render_template("/quiz_custom.html", item=quiz_data[0])
-
-
 @app.route("/quiz/<pstr>", methods=["GET"])
 def quiz_page(pstr=" "):
 
@@ -308,11 +304,15 @@ def quiz_page(pstr=" "):
 
     # print(pstr)
     random.seed()
+    greystart = 1 # 2
+    one_col_start = 2 # 5
+    three_col_start = 3 # 8
+    ending = 4 # 10
     quiz_data[0]["options"].clear()
     if page_id == 0:
         quiz_learn.clear()
 
-    if page_id < 2:
+    if page_id < greystart:
         # print(quiz_data[0])
         # print(quiz_data[0]["options"])
         quiz_data[0]["options"].clear()
@@ -337,7 +337,7 @@ def quiz_page(pstr=" "):
         # print(quiz_data[0]["options"])
 
         return render_template("quiz_multi.html", item=quiz_data[0])
-    if page_id < 5:
+    if page_id < one_col_start:
         solutionar = [0, 0, 0]
         solution = random.randrange(0, 255, 1)
         primcol = random.randrange(0, 3, 1)
@@ -382,7 +382,7 @@ def quiz_page(pstr=" "):
 
         return render_template("quiz_multi.html", item=quiz_data[0])
 
-    if page_id < 8:
+    if page_id < three_col_start:
         solutionar = [
             random.randrange(0, 255, 1),
             random.randrange(0, 255, 1),
@@ -421,7 +421,7 @@ def quiz_page(pstr=" "):
         random.shuffle(quiz_data[0]["options"])
 
         return render_template("quiz_multi.html", item=quiz_data[0])
-    if page_id < 10:
+    if page_id < ending:
         quiz_data[0]["words"] = "Identify the RGB values (it doesn't have to be exact)"
         solutionar = [
             random.randrange(0, 255, 1),
