@@ -41,17 +41,21 @@ $(document).ready(function () {
             $(this).addClass("circleWrong")
            // $('.warning').show()
             var next = "/quiz/" + (item["id"]).toString()
-            window.setTimeout(function() {
+            window.location.href = next;
+
+            /*window.setTimeout(function() {
                 window.location.href = next;
-            }, 500);
+            }, 50);*/
 
         } else {
             $(this).addClass("circleRight")
             $('.correct').show()
             var next = "/quiz/" + (item["id"]).toString()
-            window.setTimeout(function() {
+            window.location.href = next;
+
+            /*window.setTimeout(function() {
                 window.location.href = next;
-            }, 500);
+            }, 50);*/
         }
     });
 });

@@ -68,10 +68,11 @@ $(document).ready(function () {
                 if (Math.abs($('#bbox').val()-b)<100){
                     var next = "/custom_quiz_" + (item["id"]).toString()
                //     $('.correct').show()
+                    window.location.href = next;
 
-                    window.setTimeout(function() {
-                        window.location.href = next;
-                    }, 50);
+            /*window.setTimeout(function() {
+                window.location.href = next;
+            }, 50);*/
                     correct = 1
                 }
             }
@@ -79,9 +80,11 @@ $(document).ready(function () {
         if (correct == 0){
           //  $('.warning').show()
             var next = "/custom_quiz_" + (item["id"]).toString()
-            window.setTimeout(function() {
+            window.location.href = next;
+
+            /*window.setTimeout(function() {
                 window.location.href = next;
-            }, 50);
+            }, 50);*/
         }
 
 
