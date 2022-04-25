@@ -51,7 +51,7 @@ $(document).ready(function () {
         b = pixelData[2]
         solution = [r,g,b]
         
-        $("#circleRow").html('<div class="circleBase" style = "background: rgb('+r+","+g+","+b+');"></div>')
+        $("#circleRow").html('<div class="circleBase" style = "background: rgb('+r+","+g+","+b+');"></div>')  // Code adapted from “How to Check If a Specific Pixel of an Image Is Transparent?” Stack Overflow, 1 Jan. 2012, https://stackoverflow.com/questions/8751020/how-to-check-if-a-specific-pixel-of-an-image-is-transparent. 
         $("#Submit").removeAttr("disabled")
 
 
