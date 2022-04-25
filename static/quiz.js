@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     let correctAnswers = 0
     let Answers = item.length
-    let easyness_fill = 125
+    let easyness_fill = 100
     for (let i = 0; i < item.length;i++){
         console.log(item[i])
         if (item[i]["mode"]==="select") {
@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 function loadEndPage(correctAnswers,Answers){
     
-    let score = $("<div>Score: "+correctAnswers+"/"+Answers+"</div>").addClass("learn-title")
+    let score = $("<div>Score: "+correctAnswers+"/"+Answers+"</div>")
     $(".quiz-page").append(score)
 
     let image = $("<img>").addClass("meme")

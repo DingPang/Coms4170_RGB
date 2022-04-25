@@ -41,9 +41,9 @@ $(document).ready(function () {
 
         quiz_store($('#rbox').val(),$('#gbox').val(),$('#bbox').val(), solution,item["id"])
 
-        if (Math.abs($('#rbox').val()-solution[0])<125){
-            if (Math.abs($('#gbox').val()-solution[1])<125){
-                if (Math.abs($('#bbox').val()-solution[2])<125){
+        if (Math.abs($('#rbox').val()-solution[0])<100){
+            if (Math.abs($('#gbox').val()-solution[1])<100){
+                if (Math.abs($('#bbox').val()-solution[2])<100){
                     var next = "/quiz/" + (item["id"]).toString()
                     $('.correct').show()
 

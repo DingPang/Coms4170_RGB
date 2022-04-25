@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_custom_p2.js') }}"></script>
+
+<script>
+    let item = {{item|tojson}};
+    let image = {{image|tojson}}
+   // var image2 = document.getElementById('output');
+    //image2.src = image;
+
+</script>
+
+<div class="container">
+    <div id = "circleRow">
+    </div>
+
+    <div>{{item.words}}</div>
+
+
+    <div class ='row'>
+        R:<input type ="text" id = "rbox">
+        G:<input type ="text" id = "gbox">
+        B:<input type ="text" id = "bbox">
+        <button id = "Submit" disabled>Submit</button>
+    
+    </div>
+
+
+
+  
+    <div>
+        <img id="output" width="200" src={{image|tojson}}/>
+    </div> 
+    <pre id="output2"></pre>
+</div>
+
+{% endblock %}
