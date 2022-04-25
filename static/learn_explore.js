@@ -1,5 +1,6 @@
 let ba = 0;
-let sec = 0;
+let br = 0;
+let bg = 0;
 
 function fill_grad (cv, ctx, r, g, b){
     dim = cv.getBoundingClientRect()
@@ -99,7 +100,8 @@ $(document).ready(function () {
 
         ba = x[2]
         fill_2D(two_D, two_D_ctx, -1, -1, ba, inc)
-        $( "#2D_value" ).html(' Result Value: rgb(' + x[0] + ', ' + x[1] + ', ' + ba + ')')
+        $( "#2D_value" ).html(' Result Value: rgb(' +br + ', ' +bg + ', ' + ba + ')')
+        fill_square(two_D_color, two_D_color_ctx,br, bg,ba)
 
     });
 
@@ -109,6 +111,8 @@ $(document).ready(function () {
             p = two_D_ctx.getImageData(x, y, 1, 1),
             x = p.data;
         $( "#2D_value" ).html(' Result Value: rgb(' + x[0] + ', ' + x[1] + ', ' + x[2] + ')')
+        br = x[0]
+        bg = x[1]
         fill_square(two_D_color, two_D_color_ctx, x[0], x[1], x[2])
     });
 });
