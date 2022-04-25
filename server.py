@@ -250,6 +250,7 @@ def mix_mix2(str=" "):
     return render_template("learn_mix2.html", item=op)
 
 
+
 @app.route("/quiz/store", methods=["POST"])
 def quiz_store():
     global quiz_learn
@@ -261,6 +262,15 @@ def quiz_store():
     print(quiz_learn)
     return jsonify(new_item)
 
+@app.route("/custum_quiz/store_image", methods=["POST"])
+def custum_quiz_store():
+    global quiz_image
+    new_item = request.get_json()
+    quiz_image = new_item["url"]
+    #print(quiz_image)
+    return jsonify(new_item)
+
+
 
 @app.route("/quiz", methods=["GET"])
 def quiz():
@@ -270,7 +280,24 @@ def quiz():
 def cquiz(pstr=" "):
     page_id = int(pstr)
     if page_id==0:
+        quiz_learn.clear()
+
         quiz_data[0]["words"] = "Choose a photo"
+        return render_template("/quiz_custom.html", item=quiz_data[0])
+    if page_id<6:
+        quiz_data[0]["words"] = "Click anywhere in the drawing to choose a color. Then enter its RGB values: ("+pstr+"/5)"
+        quiz_data[0]["id"] = page_id + 1
+
+        return render_template("/quiz_custom_p2.html", item=quiz_data[0], image =quiz_image)
+
+    quiz_data[0]["id"] = page_id + 1
+
+    answers = quiz_learn
+    return render_template("quiz.html", item=answers)
+
+
+
+
     return render_template("/quiz_custom.html", item=quiz_data[0])
 
 
