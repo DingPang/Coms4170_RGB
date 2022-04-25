@@ -5,15 +5,16 @@
 <script>
     let item = {{item|tojson}};
 </script>
-<div>What is the most likely RGB value of below color?</div>
-<div>{{item.words}}</div>
-<div class="container">
-    <div class="warning">Try again!</div>
-    <div class="correct">Correct!</div>
-    <button id = "Hint_Color">
-        Hint
-    </button>
 
+
+<div class="question">What is the most likely RGB value of below color?</div>
+<div>{{item.words}}</div>
+
+<button type="button" class="btn btn-outline-secondary hint-btn" id = "Hint_Color">
+    Hint
+</button>
+
+<div class="container">
     <div class="container" id = "slider">
         <div class="wrapper">
             R<input type="range" min="0" max="255" value="0" id="red" oninput="colors()">
@@ -27,25 +28,28 @@
          <span id="output">rgb(0, 0, 0)</span>
     </div>
 
-    <div class="row">
-        <div class = "col-md-6">
-            <div class="circleBase" style = "background: rgb{{item.solution}};" id = "{{item.solution}}"></div>
-        </div>
-        <div class = "col-md-3">
-        </div>
-        <div class = "col-md-3" id = "ref">
-            you selected:
+    <div class="row justify-content-center">
+        <div class="circleBase" style = "background: rgb{{item.solution}};" id = "{{item.solution}}"></div>
+    </div>
+
+    <div class="row justify-content-center">
+        {% for c in item.options %}
+            <button class="btn btn-outline-secondary" style="margin: 10px;" id = "{{c}}">{{c}}</button>
+        {% endfor %}
+    </div>
+
+    <div class="warning" style="text-align: center;">Try again!</div>
+    <div class="correct" style="text-align: center;">Correct!</div>
+
+    <div class="row justify-content-center">
+        <div id = "ref" style="text-align: center;">
+            You selected:
             <div class="circleBase" id = "ref_color"></div>
         </div>
     </div>
-
-    <div class="row">
-        {% for c in item.options %}
-            <button class="btn btn-secondary" id = "{{c}}">{{c}}</button>
-        {% endfor %}
-    </div>
-    <div class="row">
-        <button id = "next" >Continue</button>
+    
+    <div class="row justify-content-center">
+        <button type="button" class="btn btn-success" id = "next" >Continue</button>
     </div>
 </div>
 {% endblock %}

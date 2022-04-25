@@ -12,13 +12,14 @@ quiz_image = ""
 learn_image = "https://i.pinimg.com/564x/b7/45/3a/b7453aedcbd060c8b842d85f27c083fb.jpg"
 learn_data = {
     "basic": {
-        "words": "The RGB color model is an additive color model in which the Red, Green, and Blue primary colors of light are added together in various ways to reproduce a broad array of colors, it is used in many electronic devices, including T.V. and Computers. To form a color with RGB, three light beams (Red, Green, Blue) must be superimposed. Each of the three beams is called a component of that color, and each of them can have an arbitrary intensity, from fully off to fully on, in the mixture. RGBs are number triplets, and each of them range from 0 to 255, the arbitrary intensity increses as the number increases. For example, (255, 255, 255) represents all 3 lights with highest intensity, the result of such is the color White. On the opposite end, (0, 0, 0) represents all 3 lights with lowest intensity, the result of such is the color Black. In addition to that, these three colors (Yellow, Cyan, Magenta) are what we call Secondary Colors. They have two parts of 255,, and one 0.",
+        "words": "Red, Green, and Blue (RGB) are primary colors of light added together in various ways to reproduce an array of colors. They are number triplets, and each of them range from 0 to 255, the arbitrary intensity increses as the number increases.",
+        "colors": ["(255, 255, 255)", "(0, 0, 0)"],
         "next": 1,
         "image": learn_image,
     },
     1: {
         "id": 1,
-        "words": "RGBs are number triplets, and each of them range from 0 to 255. Higher the number corresponds to a lighter/brighter color. So, (255, 255, 255) is?",
+        "words": "RGB components range from 0 to 255. The higher the number, the lighter/brighter the color. What color corresponds to (255, 255, 255)?",
         "options": ["(255, 255, 255)", "(0, 0, 0)"],
         "solution": "(255, 255, 255)",
         "type": "multi",
@@ -137,24 +138,28 @@ learn_data = {
         "next": "end",
     },
     "rg": {
+        "title": "Combining Red and Green",
         "words": "As we have learned in basic sections, Red + Green = Yellow, but how exactly are different shades of them distributed? We will use below 2 gradients to illustrate their relationship.",
         "base": "Red",
         "Add": "Green",
         "next": 4,
     },
     "rb": {
+        "title": "Combining Red and Blue",
         "words": "As we have learned in basic sections, Red + Blue = Magenta, but how exactly are different shades of them distributed? We will use below 2 gradients to illustrate their relationship.",
         "base": "Red",
         "Add": "Blue",
         "next": 7,
     },
     "gb": {
+        "title": "Combining Green and Blue",
         "words": "As we have learned in basic sections, Green + Blue = Cyan, but how exactly are different shades of them distributed? We will use below 2 gradients to illustrate their relationship.",
         "base": "Green",
         "Add": "Blue",
         "next": 10,
     },
     "explore": {
+        "title": "Combing Red, Green, and Blue",
         "words": "As we have learned in other sections, 2 colors mixing is a 2D Gradient, but what about 3 colors? The Gradient is going to in 3D Space, and it hard to visulaize. However, we also can represent it with a one 1D Gradient and one 2D Gradient as shown below. This perspective going to include all the possible colors that RGB can represent!",
         "base": "Green",
         "Add": "Blue",

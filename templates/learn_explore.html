@@ -8,34 +8,32 @@
 </script>
 
 
-
 <div class="container" >
-    <div>
+    <div class="learn-title">{{item.title}}</div>
+    <div style="text-align: center; margin-bottom: 20px;">
         {{item.words}}
     </div>
-    <div>
+    <div class="instructions">
         We will use Blue as our Base Color, and observe how the Red/Green Gradient changes based on the changes of Blue value:
-    </div>
-    <div id  = "base_value">
-        Base Color Value: rgb(0, 0, 0)
-    </div>
-    <canvas width="512" height="50" id="base"></canvas>
-    <div>
-        Base Color:
+        <div id  = "base_value">
+            rgb(0, 0, 0)
+        </div>
+        <canvas width="512" height="50" id="base"></canvas>
+        Base Color: <br>
         <canvas width="50" height="50" id="base_color"></canvas>
     </div>
-    <canvas width="512" height="512" id="2D"></canvas>
-    <div id  = "2D_value">
-        Result Value: rgb(0, 0, 0)
-    </div>
-    <div>
+
+    <div class="instructions">
+        <canvas width="512" height="512" id="2D"></canvas>
+        <div id  = "2D_value">
+            rgb(0, 0, 0)
+        </div>
         <canvas width="50" height="50" id="2D_color"></canvas>
+
     </div>
-    <div>
-        After exploring, keep this 2D + 1D Gradient in mind for the "Quiz" and "Test Your Understanding"!
-    </div>
+    
     <div class="row">
-        <button id = "next" >Test Your Understanding</button>
+        <button type="button" class="btn btn-secondary hint-btn" style="margin-bottom: 30px;" id = "next" >Test Your Understanding</button>
     </div>
 
 </div>

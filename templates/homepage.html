@@ -3,19 +3,19 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'homepage.js') }}"></script>
 
-
-<div class="row justify-content-center">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/W4Rebo3aEkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="row homepage-content">
+    <div class="col-6 home-title">
+        Learn the RGB of Colors
+        <div class="home-subtitle">
+            A fast and easy way to learn how to guess different RGB colors through interactive learning and the opportunity to test your knowledge
+        </div>
+        <div class="row justify-content-center">
+            <button id="start-button" type="button" class="btn btn-success">GET STARTED</button>
+        </div>
+    </div>
+    <div class="col-6">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/W4Rebo3aEkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </div>
-<div class="row justify-content-center home-title">
-    Learn the RGB of Colors 
-</div>
-<div class="row justify-content-center">
-    "It's last, but NOT the least."
-</div>
-<div class="row justify-content-center">
-    <button id="start-button" type="button" class="btn btn-primary">Start Learning</button>
-</div>
-
 
 {% endblock %}

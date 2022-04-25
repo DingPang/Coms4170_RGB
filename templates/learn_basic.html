@@ -6,14 +6,32 @@
 </script>
 
 
+
 <div class="container">
-    <div class="row">
-        {{item.words}}
+    <div class="row learn-content">
+        <div class="col-7">
+            <div class="learn-title">What is RGB?</div>
+           {{item.words}} 
+           <div class="row justify-content-center">
+               <div class="col-3">
+                   <div class="rounded-circle learn-circle" style="background-color: white; border-style: solid; margin: 0px;"></div>
+                   <div style="font-weight: bold;">{{item.colors[0]}}</div>
+                   <div>High intensity for all</div>
+               </div>
+               <div class="col-3">
+                    <div class="rounded-circle learn-circle" style="background-color: black; border-style: solid; margin: 0px;"></div>
+                    <div style="font-weight: bold;">{{item.colors[1]}}</div>
+                    <div>Low intensity for all</div>
+               </div>
+           </div>
+        </div>
+        <div class="col-5">
+            <img src='{{item.image}}' alt='RGB Mixing Color Wheels'>
+        </div>      
     </div>
-    <img src='{{item.image}}' alt='RGB Mixing Color Wheels' style = "object-fit: scale-down; width: 50%;
-    height: 50%;">
-    <div class="row">
-        <button onclick="window.location.href = '/learn/{{item.next}}'">Test Your Understanding</button>
+    <div class="row justify-content-center">
+        <button type="button" class="btn btn-secondary" style="margin-top: 15px;" onclick="window.location.href = '/learn/{{item.next}}'">Test Your Understanding</button>
     </div>
+    
 </div>
 {% endblock %}

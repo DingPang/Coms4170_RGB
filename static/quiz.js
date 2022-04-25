@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 function loadEndPage(correctAnswers,Answers){
     
-    let score = $("<div>Score: "+correctAnswers+"/"+Answers+"</div>")
+    let score = $("<div>Score: "+correctAnswers+"/"+Answers+"</div>").addClass("learn-title")
     $(".quiz-page").append(score)
 
     let image = $("<img>").addClass("meme")

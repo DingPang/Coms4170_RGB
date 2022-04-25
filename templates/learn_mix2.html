@@ -9,50 +9,46 @@
 
 
 
-<div class="container" >
-    <div>
+<div class="container">
+    <div class="learn-title">{{item.title}}</div>
+    <div style="text-align: center; margin-bottom: 20px;">
         {{item.words}}
     </div>
-    <div>
-        First, select your base color value ({{item.base}}) by moving mouse over below gradient:
-    </div>
-    <div id  = "base_value">
-        Base Color Value: rgb(0, 0, 0)
-    </div>
-    <canvas width="512" height="50" id="base"></canvas>
-    <div>
-        Base Color:
+
+    <div class="instructions">
+        Select base color value ({{item.base}}) by moving mouse over below gradient:
+        <div id="base_value">
+            rgb(0, 0, 0)
+        </div>
+        <canvas width="512" height="50" id="base"></canvas>
+         Base Color: <br>
         <canvas width="50" height="50" id="base_color"></canvas>
+
     </div>
 
 
-    <div>
-        Now, below gradient shows when we add different amount of {{item.Add}} to it:
-    </div>
-    <div id  = "Add_value">
-        After Adding: rgb(0, 0, 0)
-    </div>
-    <canvas width="512" height="50" id="Add"></canvas>
-    <div>
-        Result Color:
+    <div class="instructions">
+        Add different amount of {{item.Add}} to base color:
+        <div id  = "Add_value">
+            rgb(0, 0, 0)
+        </div>
+        <canvas width="512" height="50" id="Add"></canvas>
+        Result Color: <br>
         <canvas width="50" height="50" id="Add_color"></canvas>
+    
     </div>
 
-    <div>
+    <div class="instructions">
         Above is the perspective of two 1D gradients, but as we know, RGB is additive, so whether {{item.base}} or {{item.Add}} is the base color doesn't matter. In fact, the best way to illustrate this addition is a 2D Gradient as shown below:
-    </div>
-    <canvas width="512" height="512" id="2D"></canvas>
-    <div id  = "2D_value">
-        Result Value: rgb(0, 0, 0)
-    </div>
-    <div>
+        <canvas width="512" height="512" id="2D"></canvas>
+        <div id  = "2D_value">
+            rgb(0, 0, 0)
+        </div>
         <canvas width="50" height="50" id="2D_color"></canvas>
     </div>
-    <div>
-        After exploring, keep this 2D Gradient in mind for the "Quiz" and "Test Your Understanding"!
-    </div>
+    
     <div class="row">
-        <button id = "next" >Test Your Understanding</button>
+        <button type="button" class="btn btn-secondary hint-btn" style="margin-bottom: 30px;" id = "next" >Test Your Understanding</button>
     </div>
 
 </div>

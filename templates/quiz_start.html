@@ -3,19 +3,15 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
-<div class="quiz-page">
+<div class="quiz-page"></div>
 
-<br>
-
-</div>
-<div class="row">
-    <button style="margin-top: 10%; background-color: orange;" onclick="window.location.href = '/quiz/0'">Basic </button>
-
-</div>
-<br>
-<div class="row">
-    <button style="margin-top: 10%; background-color: orange;" onclick="window.location.href = '/custom_quiz_0'">Custom Photo </button>
-
+<div class="row justify-content-center learn-title">Select mode:</div>
+    <div class="row">
+        <button type="button" class="btn btn-outline-secondary level-begin" onclick="window.location.href = '/quiz/0'">Basic</button>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-outline-secondary level-begin" style="margin-top:10px;" onclick="window.location.href = '/custom_quiz_0'">Custom Photo</button>
+    </div>
 
 </div>
 

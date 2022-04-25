@@ -2,25 +2,52 @@
 
 {% block content %}
 
-    <h1>Ready to Learn RGB?</h1>
-    <div class="container">
-        <div class="row" id="learn_Basic">
-            <button style = "margin-top: 10%; background-color: orange;" onclick="window.location.href = '/learn/basic'">Teach Me from the Beginning </button>
+    
+    <div class="row justify-content-center learn-title">Select from the following lessons:</div>
+    <div class="row" id="learn_Basic">
+        <button type="button" class="btn btn-outline-secondary level-begin" onclick="window.location.href = '/learn/basic'">Teach Me from the Beginning </button>
+    </div>
+    <div class="row">
+        <div class="col-6 fix-padding">
+            <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/mix_rg'">
+                Color Mixing: Red and Green 
+                <div class="row justify-content-center">
+                    <div class="rounded-circle learn-circle" style="background-color: red"></div>
+                    <div class="rounded-circle learn-circle" style="background-color: green"></div>
+                </div>
+            </button>
         </div>
-        <div class="row">
-            <button style = "margin-top: 10%; background-color: orange;" onclick="window.location.href = '/learn/mix_rg'">Color Mixing: Red and Green</button>
-        </div>
-        <div class="row">
-            <button style = "margin-top: 10%; background-color: orange;" onclick="window.location.href = '/learn/mix_rb'">Color Mixing: Red and Blue</button>
-        </div>
-        <div class="row">
-            <button style = "margin-top: 10%; background-color: orange;" onclick="window.location.href = '/learn/mix_gb'">Color Mixing: Green and Blue</button>
-        </div>
-        <div class="row">
-            <button style = "margin-top: 10%; background-color: orange;" onclick="window.location.href = '/learn/explore'">Color Mixing: RGB</button>
+        <div class="col-6 fix-padding">
+            <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/mix_rb'">
+                Color Mixing: Red and Blue
+                <div class="row justify-content-center">
+                    <div class="rounded-circle learn-circle" style="background-color: red"></div>
+                    <div class="rounded-circle learn-circle" style="background-color: blue"></div>
+                </div>
+            </button>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-6 fix-padding">
+            <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/mix_gb'">
+                Color Mixing: Green and Blue
+                <div class="row justify-content-center">
+                    <div class="rounded-circle learn-circle" style="background-color: green"></div>
+                    <div class="rounded-circle learn-circle" style="background-color: blue"></div>
+                </div>
+            </button>
+        </div>
+        <div class="col-6 fix-padding">
+            <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/explore'">
+                Color Mixing: RGB
+                <div class="row justify-content-center">
+                    <div class="rounded-circle learn-circle" style="background-color: red"></div>
+                    <div class="rounded-circle learn-circle" style="background-color: green"></div>
+                    <div class="rounded-circle learn-circle" style="background-color: blue"></div>
+                </div>
+            </button>
+        </div>
+    </div>
 
 {% endblock %}
 

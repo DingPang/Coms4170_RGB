@@ -5,15 +5,12 @@
     let item = {{item|tojson}};
 </script>
 
-
-
-<div class="container" >
-    <div>
-        {{item.words}}
+<div class="row justify-content-center learn-title">{{item.words}}</div>
+    <div class="row">
+        <button type="button" class="btn btn-outline-secondary level-begin" onclick="window.location.href = '/'">Home</button>
     </div>
     <div class="row">
-        <button id = "next" onclick="window.location.href = '/'">Bring Me to Home</button>
-        <button id = "next" onclick="window.location.href = '/quiz'">Bring Me to Quiz</button>
+        <button type="button" class="btn btn-outline-secondary level-begin" style="margin-top:10px;" onclick="window.location.href = '/quiz'">Quiz</button>
     </div>
 
 </div>

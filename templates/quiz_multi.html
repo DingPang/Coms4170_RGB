@@ -5,12 +5,10 @@
 <script>
     let item = {{item|tojson}};
 </script>
-<div>{{item.words}}</div>
+<div class="question">{{item.words}}</div>
 
 <div class="container">
-    <div class="warning">Try again!</div>
-    <div class="correct">Correct!</div>
-    <div class="row">
+    <div class="row justify-content-center">
         {% for c in item.options %}
             <button class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></button>
         {% endfor %}
