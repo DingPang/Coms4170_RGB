@@ -12,26 +12,23 @@
 </script>
 
 <div class="container">
-    <div id = "circleRow">
+    <div class="row custom-content">
+        <div class="col-7">
+            <div class="question">{{item.words}}</div>
+            <div id = "circleRow" class="custom-circle"></div>
+            <div style="margin-top: 10px;">
+                R: <input type ="text" id = "rbox">
+                G: <input type ="text" id = "gbox">
+                B: <input type ="text" id = "bbox">
+            </div>
+            <button type="button" class="btn btn-secondary submit-btn" id = "Submit" disabled>Submit</button>
+        </div>
+
+        <div class="col-5">
+            <img id="output" src={{image|tojson}}/>
+        </div>
     </div>
 
-    <div>{{item.words}}</div>
-
-
-    <div class ='row'>
-        R:<input type ="text" id = "rbox">
-        G:<input type ="text" id = "gbox">
-        B:<input type ="text" id = "bbox">
-        <button id = "Submit" disabled>Submit</button>
-    
-    </div>
-
-
-
-  
-    <div>
-        <img id="output" width="200" src={{image|tojson}}/>
-    </div> 
     <pre id="output2"></pre>
 </div>
 

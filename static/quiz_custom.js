@@ -28,8 +28,8 @@ $(document).ready(function () {
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
         quiz_store(image.src, item["id"])
-        if (!($("#output").attr("src") ===undefined)){
-            $("#labelDiv").append('<button style="margin-top: 10%; background-color: orange;" onclick="window.location.href = &#39;/custom_quiz_1&#39;" >Next </button>')
+        if (!($("#output").attr("src") === undefined)){
+            $("#labelDiv").append('<button type="button" class="btn btn-success" style="margin-top:30px; margin-left: 10px;" onclick="window.location.href = &#39;/custom_quiz_1&#39;">Continue</button>')
         } // Code adapted from Thapa, Jiwan. “How To Display Uploaded Image In Html Using Javascript ?” Webtrickshome, https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript. 
     
     })

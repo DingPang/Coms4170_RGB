@@ -144,3 +144,28 @@ input {
   margin-right: 8px;
   outline: none;
 }
+
+/* Quiz */
+.select-btn {
+  border-style: solid;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.custom-content {
+  margin-top: 30px;
+}
+
+.custom-circle {
+  margin-left: 175px;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

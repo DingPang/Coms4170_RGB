@@ -10,17 +10,21 @@
     };*/
 </script>
 
-<div class="container">
-    <div>
-        <input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+    <div class="row">
+        <div class="col-6 custom-content">
+            <div>
+                <input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+            </div>
+            <div id = "labelDiv">
+                <label for="file" class="select-btn">Select an Image</label><br>
+            </div>
+        </div>
+
+        <div class="col-6">
+             <img id="output"/>
+        </div>
     </div>
-    <div  id = "labelDiv">
-        <label for="file" style="cursor: pointer; margin-top: 10%; background-color: orange;">Select an Image</label>
-    </div>
-    <div>
-        <img id="output" width="200" />
-    </div> 
-    <!--Code adapted from Thapa, Jiwan. “How To Display Uploaded Image In Html Using Javascript ?” Webtrickshome, https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript. -->
-</div>
+
+    <!--Code adapted from Thapa, Jiwan. “How To Display Uploaded Image In Html Using Javascript ?” Webtrickshome, https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript.-->
 
 {% endblock %}
