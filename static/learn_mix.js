@@ -54,9 +54,21 @@ function insert_Hint() {
 
 }
 
+function displayProgressBar(){
+    let questionPercent = parseInt(((parseInt(item["q_num"]) -1)/3) * 100)
+    let outerBody = $("<div style='height: 15px; width: 250px;'></div>").addClass("progress")
+    let innerBody = $("<div class='progress-bar' role='progressbar' aria-valuemin='0' aria-valuemax='100'>")
+    let percent = questionPercent.toString() + "%"
+    $(innerBody).css("width", percent).attr("aria-valuenow", questionPercent)
+    $(innerBody).html(percent)
+    $(outerBody).append(innerBody)
+    $("#progress").append(outerBody)
+}
+
 
 
 $(document).ready(function () {
+    displayProgressBar()
     $('.warning').hide()
     $('.correct').hide()
     $(".hint").click(function(event) {

@@ -1,5 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: #ebf2fa;
 }
 
 .circleBase {
@@ -87,12 +88,14 @@ img {
 .level-begin {
   padding: 30px;
   width: 100%;
+  background-color: #f9f9f9;
 }
 
 .level {
   padding: 30px;
   width: 99%;
   margin-top: 5px;
+  background-color: #f9f9f9;
 }
 
 .fix-padding {
@@ -104,6 +107,7 @@ img {
   width: 100px;
   height: 100px;
   margin: 5px;
+  border-style: solid;
 }
 
 .learn-content {
@@ -145,10 +149,52 @@ input {
   outline: none;
 }
 
+.difficulty-1 {
+  background-color: grey;
+  border-style: solid;
+  border-color: grey;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 12px;
+  height: 12px;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline-block;
+}
+
+.difficulty-2 {
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+  width: 12px;
+  height: 12px;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline-block;
+}
+
+.difficulty-3 {
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+  width: 12px;
+  height: 12px;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline-block;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.level-title {
+  display: inline-block;
+}
+
+
 /* Quiz */
 .select-btn {
   border-style: solid;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
   padding: 10px;
   text-align: center;
@@ -159,13 +205,16 @@ input {
   margin-top: 30px;
 }
 
-.custom-circle {
-  margin-left: 175px;
-}
-
 .submit-btn {
   margin-top: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.progress {
+  margin-top: 30px;
+  margin-right: 100%;
+  background: darkgrey;
+  
 }

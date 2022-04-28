@@ -24,6 +24,7 @@ learn_data = {
         "solution": "(255, 255, 255)",
         "type": "multi",
         "next": 2,
+        "q_num": 1,
     },
     2: {
         "id": 2,
@@ -32,6 +33,7 @@ learn_data = {
         "solution": "(255, 0, 0)",
         "type": "multi",
         "next": 3,
+        "q_num": 2,
     },
     3: {
         "id": 3,
@@ -40,6 +42,7 @@ learn_data = {
         "solution": "(255, 255, 0)",
         "type": "multi",
         "next": "mix_rg",
+        "q_num": 3,
     },
     4: {
         "id": 4,
@@ -48,6 +51,7 @@ learn_data = {
         "solution": "(247, 148, 0)",
         "type": "multi",
         "next": 5,
+        "q_num": 1,
     },
     5: {
         "id": 5,
@@ -56,6 +60,7 @@ learn_data = {
         "solution": "(247, 111, 0)",
         "type": "multi_reverse",
         "next": 6,
+        "q_num": 2,
     },
     6: {
         "id": 6,
@@ -64,6 +69,7 @@ learn_data = {
         "solution": "(111, 148, 0)",
         "type": "multi_reverse",
         "next": "mix_rb",
+        "q_num": 3,
     },
     7: {
         "id": 7,
@@ -72,6 +78,7 @@ learn_data = {
         "solution": "(247, 0, 148)",
         "type": "multi",
         "next": 8,
+        "q_num": 1,
     },
     8: {
         "id": 8,
@@ -80,6 +87,7 @@ learn_data = {
         "solution": "(148, 0, 148)",
         "type": "multi_reverse",
         "next": 9,
+        "q_num": 2,
     },
     9: {
         "id": 9,
@@ -88,6 +96,7 @@ learn_data = {
         "solution": "(111, 0, 148)",
         "type": "multi_reverse",
         "next": "mix_gb",
+        "q_num": 3,
     },
     10: {
         "id": 10,
@@ -96,6 +105,7 @@ learn_data = {
         "solution": "(0, 177, 148)",
         "type": "multi",
         "next": 11,
+        "q_num": 1,
     },
     11: {
         "id": 11,
@@ -104,6 +114,7 @@ learn_data = {
         "solution": "(0, 177, 255)",
         "type": "multi_reverse",
         "next": 12,
+        "q_num": 2,
     },
     12: {
         "id": 12,
@@ -112,6 +123,7 @@ learn_data = {
         "solution": "(0, 111, 70)",
         "type": "multi_reverse",
         "next": "explore",
+        "q_num": 3,
     },
     13: {
         "id": 13,
@@ -120,6 +132,7 @@ learn_data = {
         "solution": "(129, 216, 208)",
         "type": "multi",
         "next": 14,
+        "q_num": 1,
     },
     14: {
         "id": 14,
@@ -128,6 +141,7 @@ learn_data = {
         "solution": "(0, 47, 167)",
         "type": "multi",
         "next": 15,
+        "q_num": 2,
     },
     15: {
         "id": 15,
@@ -136,6 +150,7 @@ learn_data = {
         "solution": "(245, 217, 226)",
         "type": "multi_reverse",
         "next": "end",
+        "q_num": 3,
     },
     "rg": {
         "title": "Combining Red and Green",
