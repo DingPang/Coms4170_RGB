@@ -4,14 +4,15 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz_mix.js') }}"></script>
 <script>
     let item = {{item|tojson}};
+    let ans = {{answers|tojson}};
 </script>
+<div id="progress"></div>
+<div id="track"></div>
 <div class="question">{{item.words}}</div>
 
 <div class="container">
     <div class="row justify-content-center">
-        {% for c in item.options %}
-            <div class="circleBase" style = "background: rgb{{c}};" id = "{{c}}"></div>
-        {% endfor %}
+        <div class="circleBase" style = "background: rgb{{item.solution}};" id = "{{item.solution}}"></div>
     </div>
     <br>
     <div class ='row justify-content-center'>
@@ -20,7 +21,7 @@
         B: <input type ="text" id = "bbox">
         <button type="button" class="btn btn-secondary" id = "Submit">Submit</button>
     </div>
-    
+
 </div>
 
 <div id = "dialog" title = "Wrong One">

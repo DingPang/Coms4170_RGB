@@ -196,6 +196,8 @@ quiz_data = [
     },
 ]
 
+basic_quiz_data = []
+
 
 @app.route("/")
 def homepage():
@@ -324,149 +326,37 @@ def quiz_page(pstr=" "):
 
     page_id = int(pstr)
     random.seed()
-    greystart = 1  # 2
-    one_col_start = 2  # 5
-    three_col_start = 3  # 8
-    ending = 4  # 10
-    quiz_data[0]["options"].clear()
-    if page_id == 0:
-        quiz_learn.clear()
-
-    if page_id < greystart:
-        # print(quiz_data[0])
-        # print(quiz_data[0]["options"])
-        quiz_data[0]["options"].clear()
-        solution = random.randrange(0, 255, 1)
-
-        quiz_data[0]["options"].append("(%s,%s,%s)" % (solution, solution, solution))
-        quiz_data[0]["solution"] = "(%s,%s,%s)" % (solution, solution, solution)
-        quiz_data[0]["words"] = "(%s,%s,%s) is:" % (solution, solution, solution)
-
-        i = 0
-        while i < 2:
-            x = random.randrange(0, 255, 1)
-            while abs(x - solution) < 50:
-                x = random.randrange(0, 255, 1)
-
-            # print(x)
-            quiz_data[0]["options"].append("(%s,%s,%s)" % (x, x, x))
-            i = i + 1
-
-        random.shuffle(quiz_data[0]["options"])
-        quiz_data[0]["id"] = page_id + 1
-        # print(quiz_data[0]["options"])
-
-        return render_template("quiz_multi.html", item=quiz_data[0])
-    if page_id < one_col_start:
-        solutionar = [0, 0, 0]
-        solution = random.randrange(0, 255, 1)
-        primcol = random.randrange(0, 3, 1)
-        solutionar[primcol] = solution
-        #        print(solutionar)
-        #       print(solutionar[2])
-        x = solutionar[0]
-
-        quiz_data[0]["options"].append(
-            "(%s,%s,%s)" % (solutionar[0], solutionar[1], solutionar[2])
-        )
-        #     print(str(5))
-        quiz_data[0]["solution"] = "(%s,%s,%s)" % (
-            solutionar[0],
-            solutionar[1],
-            solutionar[2],
-        )
-        quiz_data[0]["words"] = "(%s,%s,%s) is:" % (
-            solutionar[0],
-            solutionar[1],
-            solutionar[2],
-        )
-
-        i = 0
-        while i < 2:
-            x = random.randrange(0, 255, 1)
-
-            while abs(x - solution) < 50:
-                x = random.randrange(0, 255, 1)
-
-            primcol = random.randrange(0, 3, 1)
-            xar = [0, 0, 0]
-            xar[primcol] = x
-
-            #    print(x)
-            quiz_data[0]["options"].append("(%s,%s,%s)" % (xar[0], xar[1], xar[2]))
-            i = i + 1
-
-        quiz_data[0]["id"] = page_id + 1
-
-        random.shuffle(quiz_data[0]["options"])
-
-        return render_template("quiz_multi.html", item=quiz_data[0])
-
-    if page_id < three_col_start:
-        solutionar = [
-            random.randrange(0, 255, 1),
-            random.randrange(0, 255, 1),
-            random.randrange(0, 255, 1),
-        ]
-
-        quiz_data[0]["options"].append(
-            "(%s,%s,%s)" % (solutionar[0], solutionar[1], solutionar[2])
-        )
-        #      print(str(5))
-        quiz_data[0]["solution"] = "(%s,%s,%s)" % (
-            solutionar[0],
-            solutionar[1],
-            solutionar[2],
-        )
-        quiz_data[0]["words"] = "(%s,%s,%s) is:" % (
-            solutionar[0],
-            solutionar[1],
-            solutionar[2],
-        )
-
-        i = 0
-        while i < 2:
-
-            xar = [
-                random.randrange(0, 255, 1),
-                random.randrange(0, 255, 1),
-                random.randrange(0, 255, 1),
-            ]
-
-            quiz_data[0]["options"].append("(%s,%s,%s)" % (xar[0], xar[1], xar[2]))
-            i = i + 1
-
-        quiz_data[0]["id"] = page_id + 1
-
-        random.shuffle(quiz_data[0]["options"])
-
-        return render_template("quiz_multi.html", item=quiz_data[0])
-
-    if page_id < ending:
-        quiz_data[0]["words"] = "Identify the RGB values (it doesn't have to be exact)"
-        solutionar = [
-            random.randrange(0, 255, 1),
-            random.randrange(0, 255, 1),
-            random.randrange(0, 255, 1),
-        ]
-
-        quiz_data[0]["options"].append(
-            "(%s,%s,%s)" % (solutionar[0], solutionar[1], solutionar[2])
-        )
-        quiz_data[0]["solution"] = "(%s,%s,%s)" % (
-            solutionar[0],
-            solutionar[1],
-            solutionar[2],
-        )
-        quiz_data[0]["id"] = page_id + 1
-        random.shuffle(quiz_data[0]["options"])
-
-        return render_template("quiz_mix.html", item=quiz_data[0])
-
-    quiz_data[0]["id"] = page_id + 1
-
+    global basic_quiz_data, quiz_learn
+    total_qs = 10
+    total_types = 5
+    cat = random.randint(1, total_types)
+    q = {
+        "type": cat,
+    }
     answers = quiz_learn
-    return render_template("quiz.html", item=answers)
+    if page_id == 0:
+        basic_quiz_data = []
+        quiz_learn = []
+
+    if page_id >= total_qs:
+        return render_template("quiz_basic_end.html", ans=answers, quiz=basic_quiz_data)
+    op = page_id % 3
+    if cat == 1:
+        q = server_helper.generate_basic(q, page_id, op)
+    elif cat == 2:
+        q = server_helper.generate_rg(q, page_id, op)
+    elif cat == 3:
+        q = server_helper.generate_rb(q, page_id, op)
+    elif cat == 4:
+        q = server_helper.generate_gb(q, page_id, op)
+    elif cat == 5:
+        q = server_helper.generate_rgb(q, page_id, op)
+
+    basic_quiz_data.append(q)
+    if op == 1:
+        return render_template("quiz_mix.html", item=q, answers=quiz_learn)
+    else:
+        return render_template("quiz_multi.html", item=q, answers=quiz_learn)
 
 
 if __name__ == "__main__":

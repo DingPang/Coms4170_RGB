@@ -16,9 +16,10 @@ $(document).ready(function(){
             if (item[i]["selection"]===item[i]["solution"]) {
                 correctAnswers+= 1
             }
-    
+
         }
         if (item[i]["mode"]==="enter") {
+            console.log(item[i]["selection"])
             if (Math.abs(item[i]["selection"][0]-item[i]["solution"][0])<easyness_fill){
                 if (Math.abs(item[i]["selection"][1]-item[i]["solution"][1])<easyness_fill){
                     if (Math.abs(item[i]["selection"][2]-item[i]["solution"][2])<easyness_fill){
@@ -26,7 +27,7 @@ $(document).ready(function(){
                     }
                 }
             }
-        
+
         }
 
     }
@@ -42,7 +43,7 @@ $(document).ready(function(){
 
 
 function loadEndPage(correctAnswers,Answers){
-    
+
     let score = $("<div>Score: "+correctAnswers+"/"+Answers+"</div>")
     $(".quiz-page").append(score)
 

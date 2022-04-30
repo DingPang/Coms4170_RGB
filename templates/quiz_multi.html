@@ -4,7 +4,10 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz_multi.js') }}"></script>
 <script>
     let item = {{item|tojson}};
+    let ans = {{answers|tojson}};
 </script>
+<div id="progress"></div>
+<div id="track"></div>
 <div class="question">{{item.words}}</div>
 
 <div class="container">
