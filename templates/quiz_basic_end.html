@@ -1,0 +1,101 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script>
+    let ans = {{ans|tojson}};
+    let quiz = {{quiz|tojson}};
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_basic_end.js') }}"></script>
+
+<div class="quiz-page">
+</div>
+<div class="row" id="learn_Basic">
+    <button type="button" class="btn btn-outline-secondary level-begin" onclick="window.location.href = '/learn/basic'">
+        <div style="transform: scale(0.9, 0.9); margin-bottom: -5px;">
+            <div class="level-title">Begineer</div>
+            <div class="difficulty-1"></div>
+            <div class="difficulty-2"></div>
+            <div class="difficulty-3"></div>
+        </div>
+        <div style="font-weight:bold;">Teach Me from thee Beginning</div>
+        <div class="row justify-content-center">
+            <div class="rounded-circle learn-circle" style="background-color: white"></div>
+            <div class="rounded-circle learn-circle" style="background-color: black"></div>
+            <div id="result_basic"></div>
+        </div>
+    </button>
+</div>
+<div class="row">
+    <div class="col-6 fix-padding">
+        <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/mix_rg'">
+            <div style="transform: scale(0.9, 0.9); margin-bottom: -5px;">
+                <div class="level-title">Intermediate</div>
+                <div class="difficulty-1"></div>
+                <div class="difficulty-2" style="background-color:grey;"></div>
+                <div class="difficulty-3"></div>
+            </div>
+
+            <div style="font-weight:bold;">Color Mixing: Red and Green</div>
+            <div class="row justify-content-center">
+                <div class="rounded-circle learn-circle" style="background-color: red"></div>
+                <div class="rounded-circle learn-circle" style="background-color: green"></div>
+                <div id="result_rg"></div>
+            </div>
+        </button>
+    </div>
+    <div class="col-6 fix-padding">
+        <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/mix_rb'">
+            <div style="transform: scale(0.9, 0.9); margin-bottom: -5px;">
+                <div class="level-title">Intermediate</div>
+                <div class="difficulty-1"></div>
+                <div class="difficulty-2" style="background-color:grey;"></div>
+                <div class="difficulty-3"></div>
+            </div>
+            <div style="font-weight:bold;">Color Mixing: Red and Blue</div>
+            <div class="row justify-content-center">
+                <div class="rounded-circle learn-circle" style="background-color: red"></div>
+                <div class="rounded-circle learn-circle" style="background-color: blue"></div>
+                <div id="result_rb"></div>
+            </div>
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 fix-padding" style="margin-bottom: 30px;">
+        <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/mix_gb'">
+            <div style="transform: scale(0.9, 0.9); margin-bottom: -5px;">
+                <div class="level-title">Intermediate</div>
+                <div class="difficulty-1"></div>
+                <div class="difficulty-2" style="background-color:grey;"></div>
+                <div class="difficulty-3"></div>
+            </div>
+            <div style="font-weight:bold;">Color Mixing: Green and Blue</div>
+            <div class="row justify-content-center">
+                <div class="rounded-circle learn-circle" style="background-color: green"></div>
+                <div class="rounded-circle learn-circle" style="background-color: blue"></div>
+                <div id="result_gb"></div>
+            </div>
+        </button>
+    </div>
+    <div class="col-6 fix-padding" style="margin-bottom: 30px;">
+        <button type="button" class="btn btn-outline-secondary level" onclick="window.location.href = '/learn/explore'">
+            <div style="transform: scale(0.9, 0.9); margin-bottom: -5px;">
+                <div class="level-title">Advanced</div>
+                <div class="difficulty-1"></div>
+                <div class="difficulty-2" style="background-color:grey;"></div>
+                <div class="difficulty-3" style="background-color:grey;"></div>
+            </div>
+            <div style="font-weight:bold;">Color Mixing: RGB</div>
+            <div class="row justify-content-center">
+                <div class="rounded-circle learn-circle" style="background-color: red"></div>
+                <div class="rounded-circle learn-circle" style="background-color: green"></div>
+                <div class="rounded-circle learn-circle" style="background-color: blue"></div>
+                <div id="result_rgb"></div>
+            </div>
+        </button>
+    </div>
+</div>
+
+
+{% endblock %}
