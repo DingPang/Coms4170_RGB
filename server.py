@@ -3,6 +3,7 @@ from flask import render_template
 from flask import Response, request, jsonify, make_response, redirect
 import random
 import time
+import server_helper
 
 app = Flask(__name__)
 user_learn = []
@@ -265,7 +266,6 @@ def mix_mix2(str=" "):
     return render_template("learn_mix2.html", item=op)
 
 
-
 @app.route("/quiz/store", methods=["POST"])
 def quiz_store():
     global quiz_learn
@@ -277,34 +277,41 @@ def quiz_store():
     print(quiz_learn)
     return jsonify(new_item)
 
+
 @app.route("/custum_quiz/store_image", methods=["POST"])
 def custum_quiz_store():
     global quiz_image
     new_item = request.get_json()
     quiz_image = new_item["url"]
-    #print(quiz_image)
+    # print(quiz_image)
     return jsonify(new_item)
-
 
 
 @app.route("/quiz", methods=["GET"])
 def quiz():
     return render_template("/quiz_start.html")
 
+
 @app.route("/custom_quiz_<pstr>", methods=["GET"])
 def cquiz(pstr=" "):
-    num_questions = 1 # 5
+    num_questions = 1  # 5
     page_id = int(pstr)
-    if page_id==0:
+    if page_id == 0:
         quiz_learn.clear()
 
         quiz_data[0]["words"] = "Choose a photo"
         return render_template("/quiz_custom.html", item=quiz_data[0])
-    if page_id<= num_questions:
-        quiz_data[0]["words"] = "Click anywhere in the drawing to choose a color. Then enter its RGB values: ("+pstr+"/5)"
+    if page_id <= num_questions:
+        quiz_data[0]["words"] = (
+            "Click anywhere in the drawing to choose a color. Then enter its RGB values: ("
+            + pstr
+            + "/5)"
+        )
         quiz_data[0]["id"] = page_id + 1
 
-        return render_template("/quiz_custom_p2.html", item=quiz_data[0], image =quiz_image)
+        return render_template(
+            "/quiz_custom_p2.html", item=quiz_data[0], image=quiz_image
+        )
 
     quiz_data[0]["id"] = page_id + 1
 
@@ -316,13 +323,11 @@ def cquiz(pstr=" "):
 def quiz_page(pstr=" "):
 
     page_id = int(pstr)
-
-    # print(pstr)
     random.seed()
-    greystart = 1 # 2
-    one_col_start = 2 # 5
-    three_col_start = 3 # 8
-    ending = 4 # 10
+    greystart = 1  # 2
+    one_col_start = 2  # 5
+    three_col_start = 3  # 8
+    ending = 4  # 10
     quiz_data[0]["options"].clear()
     if page_id == 0:
         quiz_learn.clear()
@@ -436,6 +441,7 @@ def quiz_page(pstr=" "):
         random.shuffle(quiz_data[0]["options"])
 
         return render_template("quiz_multi.html", item=quiz_data[0])
+
     if page_id < ending:
         quiz_data[0]["words"] = "Identify the RGB values (it doesn't have to be exact)"
         solutionar = [
