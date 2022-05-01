@@ -34,11 +34,12 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 30%;
 }
 
 .again-btn {
-    float: right;
+    margin-top: 20px;
+    width: 200px;
 }
 
 /* NavBar */
@@ -212,9 +213,27 @@ input {
   margin-right: auto;
 }
 
-.progress {
-  margin-top: 30px;
-  margin-right: 100%;
-  background: darkgrey;
-  
+#progress {
+  display: inline-block;
+}
+
+#track {
+  display: inline-block;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.score-number {
+  font-size: 25px;
+  color: #023e8a;
+  font-weight: bold;
+}
+
+.score-total {
+  font-size: 20px; 
+  color: #6c757d;
+}
+
+.score-tag {
+  background-color: white;
 }

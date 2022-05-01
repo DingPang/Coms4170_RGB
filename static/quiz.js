@@ -44,8 +44,10 @@ $(document).ready(function(){
 
 function loadEndPage(correctAnswers,Answers){
 
-    let score = $("<div>Score: "+correctAnswers+"/"+Answers+"</div>")
-    $(".quiz-page").append(score)
+    let score_number = $("<span>" + correctAnswers + "</span>").addClass("score-number")
+    let score_total = $("<span> of " + Answers + "</span>").addClass("score-total")
+    $(".quiz-page").append(score_number, score_total)
+
 
     let image = $("<img>").addClass("meme")
     if (Answers==0){
@@ -63,8 +65,4 @@ function loadEndPage(correctAnswers,Answers){
     //if (correctAnswers/Answers)
     $(image).attr("alt", "End Meme")
     $(".quiz-page").append(image)
-
-    let againBtn = $("<button></button>").addClass("btn btn-primary again-btn").attr("type", "button")
-    $(againBtn).html("Again!")
-    $(".quiz-page").append(againBtn)
 }
