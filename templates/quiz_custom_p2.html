@@ -28,8 +28,10 @@
             <button type="button" class="btn btn-secondary submit-btn" id = "Submit" disabled>Submit</button>
         </div>
 
-        <div class="col-5">
-            <img id="output" src={{image|tojson}} style="cursor: crosshair;"/>
+        <div class="col-5" id="base">
+            <img id="output" src={{image|tojson}} style="cursor: crosshair;" width="300" height="227"/>
+            <canvas id="base_canvas" width="500" height="400">
+            </canvas>
         </div>
     </div>
 

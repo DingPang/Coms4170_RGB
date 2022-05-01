@@ -31,6 +31,36 @@ function quiz_store(rval, gval, bval,solution, page){
         }
     });
 }
+function draw_canvas_image() {
+    var canvas = document.getElementById("base_canvas");
+    var context = canvas.getContext("2d");
+    var imageObj = document.getElementById("output");
+    var imgWidth = imageObj.naturalWidth;
+    var screenWidth  = canvas.width;
+    var scaleX = 1;
+    if (imgWidth > screenWidth){
+        scaleX = screenWidth/imgWidth;
+    }
+    var imgHeight = imageObj.naturalHeight;
+    var screenHeight = canvas.height;
+    var scaleY = 1;
+    if (imgHeight > screenHeight){
+        scaleY = screenHeight/imgHeight;
+    }
+    var scale = scaleY;
+    if(scaleX < scaleY){
+        scale = scaleX;
+    }
+    if(scale < 1){
+        imgHeight = imgHeight*scale;
+        imgWidth = imgWidth*scale;
+    }
+
+    canvas.height = imgHeight;
+    canvas.width = imgWidth;
+    console.log(scale,imgHeight, imgWidth)
+    context.drawImage(imageObj, 0, 0, imageObj.naturalWidth, imageObj.naturalHeight, 0,0, imgWidth, imgHeight);
+  }
 
 $(document).ready(function () {
     console.log(difficulty)
@@ -38,22 +68,25 @@ $(document).ready(function () {
     $("#output").click(function(event){
         console.log(event)
     })
+    draw_canvas_image()
+    $("#output").hide()
 
-    $('img').click(function(event) {
-
-        if (!this.canvas) {
-            this.canvas = $('<canvas />')[0];
-            this.canvas.width = this.width;
-            this.canvas.height = this.height;
-            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-        }
-
-        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
+    $('#base').click(function(event) {
+        canvas = document.getElementById("base_canvas");
+        // if($("#output").is(":visible")){
+        //     // img = document.getElementById("output");
+        //     // canvas.width=img.width;
+        //     // canvas.height=img.height;
+        //     // canvas.getContext('2d').drawImage(img, 0, 0, this.width, this.height);
+        //     // $("#output").hide()
+        //     // console.log(img.height,img.width )
+        //     // console.log(canvas.height,canvas.width )
+        // }
+        var pixelData = canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
         r = pixelData[0]
         g = pixelData[1]
         b = pixelData[2]
         solution = [r,g,b]
-
         if (difficulty == "easy"){
             if (x != 0) {
                 $('#rbox').val(r)
@@ -64,9 +97,9 @@ $(document).ready(function () {
             if (x != 2) {
                 $('#bbox').val(b)
             }
-            
-        }     
-        
+
+        }
+
         if (difficulty == "medium"){
             if (x == 0) {
                 $('#rbox').val(r)
@@ -77,9 +110,9 @@ $(document).ready(function () {
             if (x == 2) {
                 $('#bbox').val(b)
             }
-            
-        }           
-        $("#circleRow").html('<div class="circleBase" style = "background: rgb('+r+","+g+","+b+');"></div>')  // Code adapted from “How to Check If a Specific Pixel of an Image Is Transparent?” Stack Overflow, 1 Jan. 2012, https://stackoverflow.com/questions/8751020/how-to-check-if-a-specific-pixel-of-an-image-is-transparent. 
+
+        }
+        $("#circleRow").html('<div class="circleBase" style = "background: rgb('+r+","+g+","+b+');"></div>')  // Code adapted from “How to Check If a Specific Pixel of an Image Is Transparent?” Stack Overflow, 1 Jan. 2012, https://stackoverflow.com/questions/8751020/how-to-check-if-a-specific-pixel-of-an-image-is-transparent.
         $("#Submit").removeAttr("disabled")
         $("#rbox").removeAttr("disabled")
         $("#gbox").removeAttr("disabled")
