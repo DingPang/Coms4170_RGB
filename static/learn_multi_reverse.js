@@ -51,7 +51,7 @@ $(document).ready(function () {
     $('#slider').hide(0)
     $('#next').hide(0)
     $('#ref').hide(0)
-    $(".btn").click(function(event) {
+    $(".selection").click(function(event) {
         learn_store($( this ).attr("id"), item["id"])
         $('.warning').hide(0)
         $('.correct').hide(0)
