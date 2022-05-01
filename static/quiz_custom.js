@@ -35,9 +35,9 @@ $(document).ready(function () {
         $("#output").removeAttr("hidden")
         quiz_store(image.src, item["id"], difficulty)
         if (!($("#output").attr("src") === undefined)){
-            $("#nextDiv").append('<button id = "nextButton" type="button" class="btn btn-success" style="margin-top:5px;" onclick="window.location.href = &#39;/custom_quiz_1&#39;">Continue</button>')
+            $("#nextDiv").append('<button id = "nextButton" type="button" class="btn btn-success" style="margin-top:38px;" onclick="window.location.href = &#39;/custom_quiz_1&#39;">Continue</button>')
         } // Code adapted from Thapa, Jiwan. “How To Display Uploaded Image In Html Using Javascript ?” Webtrickshome, https://www.webtrickshome.com/forum/how-to-display-uploaded-image-in-html-using-javascript. 
-        $("#easyDiv").append("<select class='form-select form-select-med select-btn'><option selected value='easy'>Easy</option><option value='medium'>Medium</option><option value='hard'>Hard</option></select>")
+        $("#easyDiv").append("<select class='form-select form-select-med select-btn' style='background-color: #ebf2fa; border: solid'><option selected value='easy'>Easy</option><option value='medium'>Medium</option><option value='hard'>Hard</option></select>")
         $("select").change(function() {
             $( "select option:selected" ).each(function() {
                 difficulty = $(this).val()
