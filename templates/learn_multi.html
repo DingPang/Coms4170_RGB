@@ -13,16 +13,14 @@
 </button>
 
 <div class="container">
-    <div class="container" id = "slider">
+    <div class="container justify-content-center" id = "slider">
         <div class="wrapper">
-            R<input type="range" min="0" max="255" value="0" id="red" oninput="colors()">
+            <input type="range" min="0" max="255" value="0" id="red" oninput="colors()" >
+            <br>
+            <input type="range" min="0" max="255" value="0" id="green" oninput="colors()">
+            <br>
+            <input type="range" min="0" max="255" value="0" id="blue" oninput="colors()">
         </div>
-        <div class="wrapper">
-             G<input type="range" min="0" max="255" value="0" id="green" oninput="colors()">
-         </div>
-         <div class="wrapper">
-             B<input type="range" min="0" max="255" value="0" id="blue" oninput="colors()">
-         </div>
          <span id="output">rgb(0, 0, 0)</span>
     </div>
 
