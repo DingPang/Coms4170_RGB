@@ -87,15 +87,26 @@ $(document).ready(function () {
         g = pixelData[1]
         b = pixelData[2]
         solution = [r,g,b]
+        $("#Submit").removeAttr("disabled")
+        $("#rbox").removeAttr("disabled")
+        $("#gbox").removeAttr("disabled")
+        $("#bbox").removeAttr("disabled")
+
         if (difficulty == "easy"){
             if (x != 0) {
                 $('#rbox').val(r)
+                $("#rbox").attr("disabled","true")
+
             }
             if (x != 1) {
                 $('#gbox').val(g)
+                $("#gbox").attr("disabled","true")
+
             }
             if (x != 2) {
                 $('#bbox').val(b)
+                $("#bbox").attr("disabled","true")
+
             }
 
         }
@@ -103,20 +114,22 @@ $(document).ready(function () {
         if (difficulty == "medium"){
             if (x == 0) {
                 $('#rbox').val(r)
+                $("#rbox").attr("disabled","true")
             }
             if (x == 1) {
                 $('#gbox').val(g)
+                $("#gbox").attr("disabled","true")
+
             }
             if (x == 2) {
                 $('#bbox').val(b)
+                $("#bbox").attr("disabled","true")
+
             }
 
         }
         $("#circleRow").html('<div class="circleBase" style = "background: rgb('+r+","+g+","+b+');"></div>')  // Code adapted from “How to Check If a Specific Pixel of an Image Is Transparent?” Stack Overflow, 1 Jan. 2012, https://stackoverflow.com/questions/8751020/how-to-check-if-a-specific-pixel-of-an-image-is-transparent.
-        $("#Submit").removeAttr("disabled")
-        $("#rbox").removeAttr("disabled")
-        $("#gbox").removeAttr("disabled")
-        $("#bbox").removeAttr("disabled")
+
 
 
 
