@@ -8,7 +8,7 @@ import server_helper
 app = Flask(__name__)
 user_learn = []
 quiz_learn = []
-
+difficulty = "easy"
 quiz_image = ""
 learn_image = "https://i.pinimg.com/564x/b7/45/3a/b7453aedcbd060c8b842d85f27c083fb.jpg"
 learn_data = {
@@ -283,8 +283,12 @@ def quiz_store():
 @app.route("/custum_quiz/store_image", methods=["POST"])
 def custum_quiz_store():
     global quiz_image
+    global difficulty
+
     new_item = request.get_json()
     quiz_image = new_item["url"]
+    difficulty = new_item["difficulty"]
+
     # print(quiz_image)
     return jsonify(new_item)
 
@@ -296,7 +300,7 @@ def quiz():
 
 @app.route("/custom_quiz_<pstr>", methods=["GET"])
 def cquiz(pstr=" "):
-    num_questions = 1  # 5
+    num_questions = 3  # 5
     page_id = int(pstr)
     if page_id == 0:
         quiz_learn.clear()
@@ -307,12 +311,12 @@ def cquiz(pstr=" "):
         quiz_data[0]["words"] = (
             "Click anywhere in the drawing to choose a color. Then enter its RGB values: ("
             + pstr
-            + "/5)"
+            + "/"+str(num_questions)+")"
         )
         quiz_data[0]["id"] = page_id + 1
 
         return render_template(
-            "/quiz_custom_p2.html", item=quiz_data[0], image=quiz_image
+            "/quiz_custom_p2.html", item=quiz_data[0], image=quiz_image, difficulty = difficulty
         )
 
     quiz_data[0]["id"] = page_id + 1
