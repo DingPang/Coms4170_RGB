@@ -14,20 +14,23 @@
     <div style="text-align: center; margin-bottom: 20px;">
         {{item.words}}
     </div>
-
     <div class="instructions">
+        <div class="sub-title">
+            1D-Base Color
+        </div>
+        <br><br>
         Select base color value ({{item.base}}) by moving mouse over below gradient:
         <div id="base_value">
             rgb(0, 0, 0)
         </div>
         <canvas width="512" height="50" id="base"></canvas>
-         Base Color: <br>
+        Base Color: <br>
         <canvas width="50" height="50" id="base_color"></canvas>
-
-    </div>
-
-
-    <div class="instructions">
+        <hr />
+        <div class="sub-title">
+            1D-Additional Color
+        </div>
+        <br><br>
         Add different amount of {{item.Add}} to base color:
         <div id  = "Add_value">
             rgb(0, 0, 0)
@@ -35,10 +38,13 @@
         <canvas width="512" height="50" id="Add"></canvas>
         Result Color: <br>
         <canvas width="50" height="50" id="Add_color"></canvas>
-    
     </div>
 
     <div class="instructions">
+        <div class="sub-title">
+            2D-Color Gradient
+        </div>
+        <br><br>
         Above is the perspective of two 1D gradients, but as we know, RGB is additive, so whether {{item.base}} or {{item.Add}} is the base color doesn't matter. In fact, the best way to illustrate this addition is a 2D Gradient as shown below:
         <canvas width="512" height="512" id="2D"></canvas>
         <div id  = "2D_value">
@@ -46,7 +52,7 @@
         </div>
         <canvas width="50" height="50" id="2D_color"></canvas>
     </div>
-    
+
     <div class="row">
         <button type="button" class="btn btn-secondary hint-btn" style="margin-bottom: 30px;" id = "next" >Test Your Understanding</button>
     </div>

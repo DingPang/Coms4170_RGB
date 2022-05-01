@@ -14,6 +14,10 @@
         {{item.words}}
     </div>
     <div class="instructions">
+        <div class="sub-title">
+            1D-Base Color
+        </div>
+        <br><br>
         We will use Blue as our Base Color, and observe how the Red/Green Gradient changes based on the changes of Blue value:
         <div id  = "base_value">
             rgb(0, 0, 0)
@@ -21,9 +25,13 @@
         <canvas width="512" height="50" id="base"></canvas>
         Base Color: <br>
         <canvas width="50" height="50" id="base_color"></canvas>
-    </div>
 
-    <div class="instructions">
+        <hr />
+        <div class="sub-title">
+            2D-Additional Color
+        </div>
+        <br><br>
+        Add different amount of Red and Green to Blue:
         <canvas width="512" height="512" id="2D"></canvas>
         <div id  = "2D_value">
             rgb(0, 0, 0)
@@ -31,7 +39,7 @@
         <canvas width="50" height="50" id="2D_color"></canvas>
 
     </div>
-    
+
     <div class="row">
         <button type="button" class="btn btn-secondary hint-btn" style="margin-bottom: 30px;" id = "next" >Test Your Understanding</button>
     </div>
