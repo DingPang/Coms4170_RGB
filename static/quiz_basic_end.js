@@ -1,6 +1,6 @@
 endMemes = {"all" : "https://www.memesmonkey.com/images/memesmonkey/be/be0b91678dfeff262973d20981434b51.jpeg",
             "most" : "https://i.imgflip.com/1qlznu.jpg",
-            "some" : "https://memegenerator.net/img/instances/67730265.jpg",
+            "some" : "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1454949056i/18033579._SX540_.jpg",
             "none" : "https://i.imgflip.com/23ks14.jpg"}
 
 function deltaE(rgbA, rgbB) {
