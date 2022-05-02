@@ -96,10 +96,13 @@ function prepop(item){
     target =  Math.floor(Math.random() * (max - min + 1)) + min;
     if (target == 1){
         $("#rbox").val(s[0]);
+        $("#rbox").attr("disabled",true)
     }else if (target == 2){
         $("#gbox").val(s[1]);
+        $("#gbox").attr("disabled",true)
     } else{
         $("#bbox").val(s[2]);
+        $("#bbox").attr("disabled",true)
     }
 }
 
