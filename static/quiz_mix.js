@@ -121,7 +121,7 @@ $(document).ready(function () {
     prepop(item)
     displayProgressBar()
     correct = get_correct(ans)
-    $('#track').html(correct + "/" + (parseInt(item.id)-1))
+    $('#track').html("Score: "+ correct + "/" + (parseInt(item.id)-1))
 
     $('.warning').hide()
     $('.correct').hide()
