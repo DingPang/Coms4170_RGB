@@ -46,7 +46,7 @@ function loadEndPage(correctAnswers,Answers){
 
     let score_number = $("<span>" + correctAnswers + "</span>").addClass("score-number")
     let score_total = $("<span> of " + Answers + "</span>").addClass("score-total")
-    $(".quiz-page").append(score_number, score_total)
+
 
 
     let image = $("<img>").addClass("meme")
@@ -54,14 +54,25 @@ function loadEndPage(correctAnswers,Answers){
         $(image).attr("src", endMemes["none"])
     } else if (correctAnswers/Answers >.99){
         $(image).attr("src", endMemes["all"])
+        score_total.addClass("good-score")
+        score_number.addClass("good-score")            
     }else if (correctAnswers/Answers >=.75){
         $(image).attr("src", endMemes["most"])
+        score_total.addClass("good-score")
+        score_number.addClass("good-score")    
     }else if (correctAnswers/Answers >=.5){
         $(image).attr("src", endMemes["some"])
+        score_total.addClass("medium-score")
+        score_number.addClass("medium-score")    
     } else {
         $(image).attr("src", endMemes["none"])
-
+        score_total.addClass("bad-score")
+        score_number.addClass("bad-score")
+    
     }
+
+    $(".quiz-page").append(score_number, score_total)
+
     //if (correctAnswers/Answers)
     $(image).attr("alt", "End Meme")
     $(".quiz-page").append(image)

@@ -104,10 +104,67 @@ function detailedResult(correctAnswers, quiz){
         }
     }
     $("#result_basic").html(basic_correct+"/" +basic_total)
+    
+    if (basic_total==0){
+    } else if (basic_correct/basic_total >.99){
+        $("#result_basic").addClass("good-score")            
+    }else if (basic_correct/basic_total >=.75){
+        $("#result_basic").addClass("good-score")
+    }else if (basic_correct/basic_total >=.5){
+        $("#result_basic").addClass("medium-score")
+    } else {
+        $("#result_basic").addClass("bad-score")    
+    }
+
     $("#result_rg").html(rg_correct+"/" +rg_total)
+
+    if (rg_total==0){
+    } else if (rg_correct/rg_total >.99){
+        $("#result_rg").addClass("good-score")            
+    }else if (rg_correct/rg_total >=.75){
+        $("#result_rg").addClass("good-score")
+    }else if (rg_correct/rg_total >=.5){
+        $("#result_rg").addClass("medium-score")
+    } else {
+        $("#result_rg").addClass("bad-score")    
+    }
+
     $("#result_rb").html(rb_correct+"/" +rb_total)
+    if (rb_total==0){
+    } else if (rb_correct/rb_total >.99){
+        $("#result_rb").addClass("good-score")            
+    }else if (rb_correct/rb_total >=.75){
+        $("#result_rb").addClass("good-score")
+    }else if (rb_correct/rb_total >=.5){
+        $("#result_rb").addClass("medium-score")
+    } else {
+        $("#result_rb").addClass("bad-score")    
+    }
+
     $("#result_gb").html(gb_correct+"/" +gb_total)
+    if (gb_total==0){
+    } else if (gb_correct/gb_total >.99){
+        $("#result_gb").addClass("good-score")            
+    }else if (gb_correct/gb_total >=.75){
+        $("#result_gb").addClass("good-score")
+    }else if (gb_correct/gb_total >=.5){
+        $("#result_gb").addClass("medium-score")
+    } else {
+        $("#result_gb").addClass("bad-score")    
+    }
+
     $("#result_rgb").html(rgb_correct+"/" +rgb_total)
+    if (rgb_total==0){
+    } else if (rgb_correct/rgb_total >.99){
+        $("#result_rgb").addClass("good-score")            
+    }else if (rgb_correct/rgb_total >=.75){
+        $("#result_rgb").addClass("good-score")
+    }else if (rgb_correct/rgb_total >=.5){
+        $("#result_rgb").addClass("medium-score")
+    } else {
+        $("#result_rgb").addClass("bad-score")    
+    }
+
 }
 
 $(document).ready(function(){
@@ -142,13 +199,20 @@ function loadEndPage(correctAnswers,Answers){
         $(image).attr("src", endMemes["none"])
     } else if (correctAnswers/Answers >.99){
         $(image).attr("src", endMemes["all"])
+        score_total.addClass("good-score")
+        score_number.addClass("good-score")            
     }else if (correctAnswers/Answers >=.75){
         $(image).attr("src", endMemes["most"])
+        score_total.addClass("good-score")
+        score_number.addClass("good-score")    
     }else if (correctAnswers/Answers >=.5){
         $(image).attr("src", endMemes["some"])
+        score_total.addClass("medium-score")
+        score_number.addClass("medium-score")    
     } else {
         $(image).attr("src", endMemes["none"])
-
+        score_total.addClass("bad-score")
+        score_number.addClass("bad-score")
     }
     //if (correctAnswers/Answers)
     $(image).attr("alt", "End Meme")

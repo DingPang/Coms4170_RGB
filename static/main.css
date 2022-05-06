@@ -233,13 +233,21 @@ input {
 
 .score-number {
   font-size: 25px;
-  color: #023e8a;
   font-weight: bold;
 }
 
 .score-total {
   font-size: 20px;
-  color: #6c757d;
+}
+
+.bad-score {
+  color: red;
+}
+.medium-score {
+  color: orange;
+}
+.good-score {
+  color: green;
 }
 
 .score-tag {
@@ -265,4 +273,3 @@ margin-left: 42.5%;}
 #base_canvas{
   outline: 1px solid black;
 }
-
