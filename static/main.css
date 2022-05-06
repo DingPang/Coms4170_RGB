@@ -259,3 +259,10 @@ hr{
 #slider{
 margin-left: 42.5%;}
 
+#output{
+  outline: 1px solid black;
+}
+#base_canvas{
+  outline: 1px solid black;
+}
+
